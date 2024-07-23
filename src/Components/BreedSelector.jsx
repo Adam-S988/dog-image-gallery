@@ -1,19 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import Menu from "./Menu";
+import ImageGallery from "./ImageGallery";
 
 const BreedSelector = () => {
+  const [breed, setBreed] = useState("");
+  const [numImages, setNumImages] = useState(1);
+
+  const handleBreedChange = (selectedBreed) => {
+    setBreed(selectedBreed);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!breed || numImages < 1) {
+      console.log("No breed selected or number of images is less than 1");
+      return;
+    }
+    console.log("Breed:", breed);
+    console.log("Number of Images:", numImages);
+    // Trigger ImageGallery with the selected breed and number of images
+  };
+
   return (
     <div>
-      {" "}
-      <label for="breeds">Please select a breed: </label>
-      <Menu />
-      <form className="add-form">
-        <div className="form-control">
-          <label>Number of Images: </label>
-          <input type="number" min="1" max="100" placeholder="1-100" />
-        </div>
-        <input type="submit" value="Generate" className="btn btn-submit" />
+      <form onSubmit={handleSubmit}>
+        <label>
+          Select a breed:
+          <Menu selectedBreed={breed} onBreedChange={handleBreedChange} />
+        </label>
+        <label>
+          Number of Images:
+          <input
+            type="number"
+            min="1"
+            max="100"
+            value={numImages}
+            onChange={(e) => setNumImages(Number(e.target.value))}
+          />
+        </label>
+        <button type="submit">Generate</button>
       </form>
+      {breed && numImages > 0 && (
+        <ImageGallery breed={breed} numImages={numImages} />
+      )}
     </div>
   );
 };

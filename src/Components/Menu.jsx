@@ -4,7 +4,11 @@ const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-const Menu = () => {
+const Menu = ({ selectedBreed, onBreedChange }) => {
+  const handleChange = (event) => {
+    onBreedChange(event.target.value);
+  };
+
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
@@ -27,11 +31,8 @@ const Menu = () => {
   }, []);
 
   return (
-    <select
-      id="breed-select"
-      //   onChange={handleBreedChange}
-      //   value={selectedBreed}
-    >
+    <select value={selectedBreed} onChange={handleChange}>
+      <option value="">--Please choose an option--</option>
       {options.map((option, index) => (
         <option key={index} value={option}>
           {option}
