@@ -45,6 +45,7 @@ h1 {
   margin: 15px;
   border-radius: 15px;
   border: 1px solid black;
+  transition: 0.5s;
 }
 
 .image-gallery img:hover {
@@ -52,6 +53,7 @@ h1 {
   height: 280px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .breed {
@@ -63,4 +65,26 @@ h1 {
 .border {
   border: 2px solid black;
   border-radius: 12px;
+}
+
+.breedSection {
+  margin-top: 20px;
+}
+
+.footerSection {
+  background-image: linear-gradient(
+    to right,
+    hsl(0, 00%, 00%, 0%),
+    hsl(19, 48%, 45%, 20%),
+    hsl(0, 00%, 00%, 0%)
+  );
+}
+
+.formSection {
+  background-image: linear-gradient(
+    to right,
+    hsl(0, 00%, 00%, 0%),
+    hsl(19, 48%, 45%, 30%),
+    hsl(0, 00%, 00%, 0%)
+  );
 }

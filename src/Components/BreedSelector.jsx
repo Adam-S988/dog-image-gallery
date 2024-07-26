@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
 import ImageGallery from "./ImageGallery";
+import Footer from "../Footer";
 
 const BreedSelector = () => {
   const [breed, setBreed] = useState("");
@@ -21,8 +22,8 @@ const BreedSelector = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div class="breedSection">
+      <form onSubmit={handleSubmit} class="formSection">
         <label>
           Select a breed:
           <Menu selectedBreed={breed} onBreedChange={handleBreedChange} />
@@ -46,6 +47,7 @@ const BreedSelector = () => {
       {breed && numImages > 0 && (
         <ImageGallery breed={breed} numImages={numImages} />
       )}
+      <Footer />
     </div>
   );
 };
