@@ -18,7 +18,6 @@ const BreedSelector = () => {
     }
     console.log("Breed:", breed);
     console.log("Number of Images:", numImages);
-    // Trigger ImageGallery with the selected breed and number of images
   };
 
   return (
@@ -28,6 +27,7 @@ const BreedSelector = () => {
           Select a breed:
           <Menu selectedBreed={breed} onBreedChange={handleBreedChange} />
         </label>
+        <div></div>
         <label>
           Number of Images:
           <input
@@ -40,6 +40,9 @@ const BreedSelector = () => {
         </label>
         <button type="submit">Generate</button>
       </form>
+      <div class="breed">
+        <h2>{breed}</h2>
+      </div>
       {breed && numImages > 0 && (
         <ImageGallery breed={breed} numImages={numImages} />
       )}

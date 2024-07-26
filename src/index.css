@@ -41,14 +41,26 @@ h1 {
 
 .image-gallery img {
   width: 200px;
-  height: 130px;
-  /* height: auto; */
+  height: 180px;
+  margin: 15px;
   border-radius: 15px;
+  border: 1px solid black;
 }
 
 .image-gallery img:hover {
   width: 300px;
-  height: auto;
+  height: 280px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.breed {
+  font-size: 32px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top: 10px;
+}
+
+.border {
+  border: 2px solid black;
+  border-radius: 12px;
 }

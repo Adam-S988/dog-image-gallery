@@ -9,7 +9,6 @@ const ImageGallery = ({ breed, numImages }) => {
       if (!breed || numImages <= 0) return;
 
       try {
-        // Format breed for API (lowercase and hyphens instead of spaces)
         const formattedBreed = breed.toLowerCase().replace(/ /g, "-");
         const response = await fetch(
           `https://dog.ceo/api/breed/${formattedBreed}/images/random/${numImages}`
@@ -17,7 +16,7 @@ const ImageGallery = ({ breed, numImages }) => {
         const data = await response.json();
 
         if (data.status === "success") {
-          setImages(data.message); // `data.message` should be an array of URLs
+          setImages(data.message);
         } else {
           setError("Failed to fetch images");
           setImages([]);
